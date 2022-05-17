@@ -24,72 +24,76 @@ struct ContentView: View {
    }
     
     var body: some View {
-        VStack {
-            Spacer()
-            HStack {
-                Text("Put the bullseye as close as you can to: ")
-                    .font(Font.custom("Arial Rounded MT Bold", size: 18))
-                    .foregroundColor(Color.white)
-                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
-                Text("\(self.target)")
-                    .font(Font.custom("Arial Rounded MT Bold", size: 24))
-                    .foregroundColor(Color.yellow)
-                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
-            }
-            HStack {
-                Text("1")
-                Slider(value: self.$sliderValue, in: 1...100)
-                Text("100")
-            }
-            Button(action: {
-                self.alertIsVisible = true
-            }, label: {
-                Text("Hit me!")
-            })
-            .alert(isPresented: self.$alertIsVisible) {
-                Alert(title: Text(self.alertTitle()),
-                      message: Text(self.scoringMessage()),
-                      dismissButton: .default(Text("Awesome")){
-                    startNewRound()
-                })
-            }
-            
-            Spacer()
-            HStack {
+        NavigationView {
+            VStack {
+                Spacer()
+                HStack {
+                    Text("Put the bullseye as close as you can to: ")
+                        .font(Font.custom("Arial Rounded MT Bold", size: 18))
+                        .foregroundColor(Color.white)
+                        .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                    Text("\(self.target)")
+                        .font(Font.custom("Arial Rounded MT Bold", size: 24))
+                        .foregroundColor(Color.yellow)
+                        .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                }
+                HStack {
+                    Text("1")
+                    Slider(value: self.$sliderValue, in: 1...100)
+                    Text("100")
+                }
                 Button(action: {
-                    startNewGame()
+                    self.alertIsVisible = true
                 }, label: {
-                    Text("Start over")
+                    Text("Hit me!")
                 })
+                .alert(isPresented: self.$alertIsVisible) {
+                    Alert(title: Text(self.alertTitle()),
+                          message: Text(self.scoringMessage()),
+                          dismissButton: .default(Text("Awesome")){
+                        startNewRound()
+                    })
+                }
                 
                 Spacer()
-                Text("Score:")
-                    .font(Font.custom("Arial Rounded MT Bold", size: 18))
-                    .foregroundColor(Color.white)
-                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
-                Text("\(self.score)")
-                    .font(Font.custom("Arial Rounded MT Bold", size: 24))
-                    .foregroundColor(Color.yellow)
-                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
-                Spacer()
-                Text("Round:")
-                    .font(Font.custom("Arial Rounded MT Bold", size: 18))
-                    .foregroundColor(Color.white)
-                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
-                Text("\(self.round)")
-                    .font(Font.custom("Arial Rounded MT Bold", size: 24))
-                    .foregroundColor(Color.yellow)
-                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
-                Spacer()
-                Button(action: {}, label: {
-                    Text("Info")
-                })
-            }.padding()
-        }
-        .onAppear() {
-            self.startNewGame()
-        }.background(Image("wood"))
+                HStack {
+                    Button(action: {
+                        startNewGame()
+                    }, label: {
+                        Text("Start over")
+                    })
+                    
+                    Spacer()
+                    Text("Score:")
+                        .font(Font.custom("Arial Rounded MT Bold", size: 18))
+                        .foregroundColor(Color.white)
+                        .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                    Text("\(self.score)")
+                        .font(Font.custom("Arial Rounded MT Bold", size: 24))
+                        .foregroundColor(Color.yellow)
+                        .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                    Spacer()
+                    Text("Round:")
+                        .font(Font.custom("Arial Rounded MT Bold", size: 18))
+                        .foregroundColor(Color.white)
+                        .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                    Text("\(self.round)")
+                        .font(Font.custom("Arial Rounded MT Bold", size: 24))
+                        .foregroundColor(Color.yellow)
+                        .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                    Spacer()
+                    NavigationLink(
+                        destination: AboutView(),
+                        label: {
+                            Text("Info")
         
+                    })
+                }.padding()
+            }
+            .onAppear() {
+                self.startNewGame()
+            }.background(Image("wood"))
+        }.navigationViewStyle(.stack)
     }
     func pointsForCurrentRound() -> Int {
         let maximumScore = 100
