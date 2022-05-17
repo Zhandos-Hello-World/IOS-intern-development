@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "wooden-wall-floor-with-aged-surface-realistic_107791-682.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

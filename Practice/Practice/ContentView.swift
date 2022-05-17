@@ -28,7 +28,13 @@ struct ContentView: View {
             Spacer()
             HStack {
                 Text("Put the bullseye as close as you can to: ")
+                    .font(Font.custom("Arial Rounded MT Bold", size: 18))
+                    .foregroundColor(Color.white)
+                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
                 Text("\(self.target)")
+                    .font(Font.custom("Arial Rounded MT Bold", size: 24))
+                    .foregroundColor(Color.yellow)
+                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
             }
             HStack {
                 Text("1")
@@ -55,18 +61,35 @@ struct ContentView: View {
                 }, label: {
                     Text("Start over")
                 })
+                
                 Spacer()
-                Text("Score: \(self.score)")
+                Text("Score:")
+                    .font(Font.custom("Arial Rounded MT Bold", size: 18))
+                    .foregroundColor(Color.white)
+                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                Text("\(self.score)")
+                    .font(Font.custom("Arial Rounded MT Bold", size: 24))
+                    .foregroundColor(Color.yellow)
+                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
                 Spacer()
-                Text("Round: \(self.round)")
+                Text("Round:")
+                    .font(Font.custom("Arial Rounded MT Bold", size: 18))
+                    .foregroundColor(Color.white)
+                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                Text("\(self.round)")
+                    .font(Font.custom("Arial Rounded MT Bold", size: 24))
+                    .foregroundColor(Color.yellow)
+                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
                 Spacer()
                 Button(action: {}, label: {
                     Text("Info")
                 })
             }.padding()
-        }.onAppear() {
-            self.startNewGame()
         }
+        .onAppear() {
+            self.startNewGame()
+        }.background(Image("wood"))
+        
     }
     func pointsForCurrentRound() -> Int {
         let maximumScore = 100
@@ -125,5 +148,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
