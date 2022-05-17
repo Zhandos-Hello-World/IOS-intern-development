@@ -1,0 +1,117 @@
+//
+//  ContentView.swift
+//  Practice
+//
+//  Created by Zhandos Baimurat on 16.05.2022.
+//
+
+import SwiftUI
+
+struct ContentView: View {
+    @State var alertIsVisible = false
+    @State var target = Int.random(in: 1...100)
+    @State var sliderValue = 50.0
+    
+    @State var score = 0
+    @State var round = 1
+    
+    var sliderValueRounded: Int {
+     Int(self.sliderValue.rounded())
+   }
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Text("Put the bullseye as close as you can to: ")
+                Text("\(self.target)")
+            }
+            HStack {
+                Text("1")
+                Slider(value: self.$sliderValue, in: 1...100)
+                Text("100")
+            }
+            Button(action: {
+                self.alertIsVisible = true
+            }, label: {
+                Text("Hit me!")
+            })
+            .alert(isPresented: self.$alertIsVisible) {
+                Alert(title: Text(self.alertTitle()),
+                      message: Text(self.scoringMessage()),
+                      dismissButton: .default(Text("Awesome")){
+                    self.score = self.score + self.pointsForCurrentRound()
+                    self.target = Int.random(in: 1...100)
+                    self.round += 1
+                })
+            }
+            
+            Spacer()
+            HStack {
+                Button(action: {}, label: {
+                    Text("Start over")
+                })
+                Spacer()
+                Text("Score: \(self.score)")
+                Spacer()
+                Text("Round: \(self.round)")
+                Spacer()
+                Button(action: {}, label: {
+                    Text("Info")
+                })
+            }.padding()
+            
+        }
+    }
+    func pointsForCurrentRound() -> Int {
+        let maximumScore = 100
+        let difference = abs(self.sliderValueRounded - self.target)
+        
+        let points: Int
+        if difference == 0 {
+            points = 200
+        } else if difference == 1 {
+            points = 150
+        } else {
+            points = maximumScore - difference
+        }
+        return points
+    }
+    
+    func alertTitle() -> String {
+        let title: String
+        let difference = abs(self.sliderValueRounded - self.target)
+        if difference == 0 {
+            title = "Perfect!"
+        } else if difference < 5 {
+            title = "You almost had it!"
+        } else if difference <= 10 {
+            title = "Not bad."
+        } else {
+            title = "Are you even trying?"
+        }
+        return title
+    }
+    
+    func startNewGame() {
+        self.score = 0
+        self.round = 1
+        self.sliderValue = 50.0
+        self.target = Int.random(in: 1...100)
+    }
+    
+    
+    
+    func scoringMessage() -> String {
+        return "The slider's value is \(sliderValueRounded).\n" +
+        "The target value is \(self.target).\n" +
+        "You scored \(self.pointsForCurrentRound()) points this round."
+    }
+    
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
