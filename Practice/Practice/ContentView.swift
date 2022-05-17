@@ -15,6 +15,10 @@ struct ContentView: View {
     @State var score = 0
     @State var round = 1
     
+    var sliderTargetDifference: Int {
+        abs(sliderValueRounded - target)
+    }
+    
     var sliderValueRounded: Int {
      Int(self.sliderValue.rounded())
    }
@@ -40,15 +44,15 @@ struct ContentView: View {
                 Alert(title: Text(self.alertTitle()),
                       message: Text(self.scoringMessage()),
                       dismissButton: .default(Text("Awesome")){
-                    self.score = self.score + self.pointsForCurrentRound()
-                    self.target = Int.random(in: 1...100)
-                    self.round += 1
+                    startNewRound()
                 })
             }
             
             Spacer()
             HStack {
-                Button(action: {}, label: {
+                Button(action: {
+                    startNewGame()
+                }, label: {
                     Text("Start over")
                 })
                 Spacer()
@@ -60,7 +64,8 @@ struct ContentView: View {
                     Text("Info")
                 })
             }.padding()
-            
+        }.onAppear() {
+            self.startNewGame()
         }
     }
     func pointsForCurrentRound() -> Int {
@@ -96,18 +101,25 @@ struct ContentView: View {
     func startNewGame() {
         self.score = 0
         self.round = 1
+        resetSliderAndTarget()
+    }
+    
+    func startNewRound() {
+        self.score = self.score + self.pointsForCurrentRound()
+        self.round += 1
+        resetSliderAndTarget()
+    }
+    
+    func resetSliderAndTarget() {
         self.sliderValue = 50.0
         self.target = Int.random(in: 1...100)
     }
-    
-    
     
     func scoringMessage() -> String {
         return "The slider's value is \(sliderValueRounded).\n" +
         "The target value is \(self.target).\n" +
         "You scored \(self.pointsForCurrentRound()) points this round."
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
