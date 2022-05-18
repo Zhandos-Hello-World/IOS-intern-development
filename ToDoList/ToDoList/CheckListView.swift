@@ -15,20 +15,9 @@ struct CheckListView: View {
     var body: some View {
       NavigationView {
         List {
-            ForEach(checklist.items, id: \.self) { item in
-                HStack {
-                    Text(item.name)
-                    Spacer()
-                    Text(item.isChecked ? "✅" : "◻️")
-                }
-                .background(.white)
-                .onTapGesture {
-                    if let matchingIndex = self.checklist.items.firstIndex(where: {
-                        $0.id == item.id }) {
-                      self.checklist.items[matchingIndex].isChecked.toggle()
-                    }
-                }
-            }
+            ForEach(checklist.items.indices) { index in
+                RowView(item: self.$checklist.items[index])
+           }
             .onDelete(perform: checklist.deleteListItem)
             .onMove(perform: checklist.moveListItem)
         }
@@ -49,15 +38,6 @@ struct CheckListView: View {
         }
     }
 }
-func alertTitle() -> String {
-    return "This is the alert title."
-}
-func scoringMessage() -> String {
-    return "This is the alert message."
-}
-
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         CheckListView()

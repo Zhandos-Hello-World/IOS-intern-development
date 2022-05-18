@@ -15,6 +15,7 @@
 		31D81B052833E6F800D53FC1 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D81B042833E6F800D53FC1 /* Checklist.swift */; };
 		31D81B072833ECA100D53FC1 /* EditCheckListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D81B062833ECA100D53FC1 /* EditCheckListItemView.swift */; };
 		31D81B092833F19000D53FC1 /* NewCheckListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D81B082833F19000D53FC1 /* NewCheckListItemView.swift */; };
+		31E66CDC2834E2A600E32D62 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E66CDB2834E2A600E32D62 /* RowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		31D81B042833E6F800D53FC1 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		31D81B062833ECA100D53FC1 /* EditCheckListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCheckListItemView.swift; sourceTree = "<group>"; };
 		31D81B082833F19000D53FC1 /* NewCheckListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCheckListItemView.swift; sourceTree = "<group>"; };
+		31E66CDB2834E2A600E32D62 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				31D81B042833E6F800D53FC1 /* Checklist.swift */,
 				31D81B062833ECA100D53FC1 /* EditCheckListItemView.swift */,
 				31D81B082833F19000D53FC1 /* NewCheckListItemView.swift */,
+				31E66CDB2834E2A600E32D62 /* RowView.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			files = (
 				31D81B052833E6F800D53FC1 /* Checklist.swift in Sources */,
 				31D81B032833E68F00D53FC1 /* ChecklistItem.swift in Sources */,
+				31E66CDC2834E2A600E32D62 /* RowView.swift in Sources */,
 				31D81AF72833A87900D53FC1 /* CheckListView.swift in Sources */,
 				31D81B092833F19000D53FC1 /* NewCheckListItemView.swift in Sources */,
 				31D81B072833ECA100D53FC1 /* EditCheckListItemView.swift in Sources */,

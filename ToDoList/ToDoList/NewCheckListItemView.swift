@@ -17,7 +17,7 @@ struct NewCheckListItemView: View {
         Form {
             TextField("Enter new item here", text: self.$newItemName)
             Button(action: {
-                var newChecklistItem = ChecklistItem(name: self.newItemName)
+                let newChecklistItem = ChecklistItem(name: self.newItemName)
                 self.checklist.items.append(newChecklistItem)
                 newItemName = ""
             }) {
