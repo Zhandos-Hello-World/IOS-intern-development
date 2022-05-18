@@ -13,6 +13,8 @@
 		31D81AFC2833A87A00D53FC1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D81AFB2833A87A00D53FC1 /* Preview Assets.xcassets */; };
 		31D81B032833E68F00D53FC1 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D81B022833E68F00D53FC1 /* ChecklistItem.swift */; };
 		31D81B052833E6F800D53FC1 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D81B042833E6F800D53FC1 /* Checklist.swift */; };
+		31D81B072833ECA100D53FC1 /* EditCheckListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D81B062833ECA100D53FC1 /* EditCheckListItemView.swift */; };
+		31D81B092833F19000D53FC1 /* NewCheckListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D81B082833F19000D53FC1 /* NewCheckListItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		31D81AFB2833A87A00D53FC1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		31D81B022833E68F00D53FC1 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		31D81B042833E6F800D53FC1 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		31D81B062833ECA100D53FC1 /* EditCheckListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCheckListItemView.swift; sourceTree = "<group>"; };
+		31D81B082833F19000D53FC1 /* NewCheckListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCheckListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				31D81AFA2833A87A00D53FC1 /* Preview Content */,
 				31D81B022833E68F00D53FC1 /* ChecklistItem.swift */,
 				31D81B042833E6F800D53FC1 /* Checklist.swift */,
+				31D81B062833ECA100D53FC1 /* EditCheckListItemView.swift */,
+				31D81B082833F19000D53FC1 /* NewCheckListItemView.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -146,6 +152,8 @@
 				31D81B052833E6F800D53FC1 /* Checklist.swift in Sources */,
 				31D81B032833E68F00D53FC1 /* ChecklistItem.swift in Sources */,
 				31D81AF72833A87900D53FC1 /* CheckListView.swift in Sources */,
+				31D81B092833F19000D53FC1 /* NewCheckListItemView.swift in Sources */,
+				31D81B072833ECA100D53FC1 /* EditCheckListItemView.swift in Sources */,
 				31D81AF52833A87900D53FC1 /* ToDoListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,7 +211,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -257,7 +265,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -275,6 +283,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToDoList/Preview Content\"";
+				DEVELOPMENT_TEAM = 9FL86YJ9KA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -303,6 +312,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToDoList/Preview Content\"";
+				DEVELOPMENT_TEAM = 9FL86YJ9KA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

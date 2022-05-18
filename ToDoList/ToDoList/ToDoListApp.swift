@@ -8,10 +8,11 @@
 import SwiftUI
 
 @main
-struct ToDoListApp: App {
+struct ToDoListApp: App {    
     var body: some Scene {
         WindowGroup {
             CheckListView()
         }
     }
 }
+

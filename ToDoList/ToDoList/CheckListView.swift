@@ -10,6 +10,7 @@ import SwiftUI
 struct CheckListView: View {
     
     @ObservedObject var checklist = Checklist()
+    @State var newChecklistItemViewIsVisible = false
     
     var body: some View {
       NavigationView {
@@ -30,11 +31,33 @@ struct CheckListView: View {
             }
             .onDelete(perform: checklist.deleteListItem)
             .onMove(perform: checklist.moveListItem)
-        }.navigationBarItems(trailing: EditButton())
-              .navigationBarTitle("Checklist")
+        }
+        .navigationBarItems(
+            leading: Button(
+                action: {
+                    self.newChecklistItemViewIsVisible = true
+                },
+                label: {
+                    Image(systemName: "plus.circle.fill")
+                    Text("Add item")
+                }),
+            trailing: EditButton())
+        .navigationBarTitle("Checklist", displayMode: .inline)
       }
+      .sheet(isPresented: $newChecklistItemViewIsVisible) {
+          NewCheckListItemView(checklist: self.checklist)
+        }
     }
 }
+func alertTitle() -> String {
+    return "This is the alert title."
+}
+func scoringMessage() -> String {
+    return "This is the alert message."
+}
+
+
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         CheckListView()
