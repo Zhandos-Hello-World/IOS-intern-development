@@ -60,7 +60,6 @@ class ViewController: UIViewController {
     
     @IBAction func sliderMoved(_ slider: UISlider) {
         currentValue = lroundf(slider.value)
-    
     }
     func updateLabels() {
         targetLabel.text = "\(targetValue)"
@@ -78,9 +77,25 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startNewGame() {
-      score = 0
-      round = 0
-      startNewRound()
+        addHighScore(score)
+        score = 0
+        round = 0
+        startNewRound()
     }
+    func addHighScore(_ score: Int) {
+        guard score > 0 else {
+            return
+        }
+        let highScore = HighScoreItem()
+        highScore.score = score
+        highScore.name = "Unknown"
+        
+        var highScores = PersistencyHelper.loadHighScores()
+        highScores.append(highScore)
+        highScores.sort { $0.score > $1.score }
+        
+        PersistencyHelper.saveHighScores(highScores)
+    }
+    
 }
 
